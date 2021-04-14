@@ -3,7 +3,7 @@ import galleryItems from '../gallery-items.js';
 const gallery = document.querySelector('.js-gallery'),
 lightboxEl = document.querySelector('.js-lightbox'),
 closeModalBtn = document.querySelector("button[data-action='close-lightbox']"),
-lightboxImgEl = document.querySelector('.lightbox__image');
+lightboxImgEl = document.querySelector('.lightbox__image'),
 overlay = document.querySelector(".lightbox__overlay"),
 itemsMarkup = createGalleryItem(galleryItems);
 
@@ -31,21 +31,21 @@ function createGalleryItem(galleryItems) {
                 </a>
             </li>
     `}).join('');
-};
+}
 // функция фильтра кликов делегирования
 function onImgClick(evt) {
     if (evt.target.nodeName !== "IMG") {
         return;
-    };
+    }
     currentImg = evt.target;
 
   evt.preventDefault();
   addLightboxContent(currentImg);
-  openModalClick();
+  onOpenModal();
 }
 // функиция открытия модалки
 
-function openModalClick() {
+function onOpenModal() {
     lightboxEl.classList.add('is-open');
     document.addEventListener("keydown", onEscKeyPress);
     document.removeEventListener("keyup", imageArrowsFlipping);
