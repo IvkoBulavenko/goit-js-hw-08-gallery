@@ -72,22 +72,3 @@ function onEscKeyPress(evt) {
     closeModal();
   }
 }
-// функция перелистывания стрелками
-function imageArrowsFlipping(evt) {
-  const parrent = currentImg.closest("li");
-
-  if (evt.code === "ArrowRight") {
-    onNextKeyPress(parrent);
-  } else if (evt.code === "ArrowLeft") {
-    onPrevKeyPress(parrent);
-  }
-}
-function onNextKeyPress(parrent) {
-  currentImg = parrent.nextElementSibling.querySelector("img");
-  addLightboxContent(currentImg);
-}
-
-function onPrevKeyPress(parrent) {
-  currentImg = parrent.previousElementSibling.querySelector("img");
-  addLightboxContent(currentImg);
-}
